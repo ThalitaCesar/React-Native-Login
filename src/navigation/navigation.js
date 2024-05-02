@@ -3,6 +3,7 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../pages/HomeScreen';
 import LoginScreen from '../pages/LoginScreen';
+import WebViewScreen from '../pages/WebViewScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,8 +21,12 @@ export default function AppNavigation() {
           component={LoginScreen}
           options={{ headerShown: false }}
         />
+         <Stack.Screen
+          name="WebView"
+          component={WebViewScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
-     
       
     </NavigationContainer>
   );

@@ -13,11 +13,13 @@ const HomeScreen= () => {
          <ImageBackground source={require('../../assets/bg.png')} style={styles.background}/>
          <View style={styles.welcome}>
         <Text style={styles.title}>
-          Welcome To {'\n'}
-          Shh!
+          Welcome To
+        </Text>
+        <Text style={[styles.title, { color: '#1ED6E4' }]}>
+          The Members
         </Text>
         <Text style={styles.subtitle}>
-          A Hub Where Whispers Echo Loudest
+        The number one membership platform for digital products
         </Text>
         <Image source={require('../../assets/clouds.png')} style={styles.clouds}/>
         <TouchableOpacity
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'start',
     alignItems: 'start',
-    backgroundColor: '#8C5CB3',
+    backgroundColor: '#030720',
   },
   welcome: {
     flex: 1,
@@ -58,28 +60,28 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
   },
   subtitle: {
-    color: '#000000',
+    color: '#E4E5E8',
     fontSize: 16,
     marginBottom: 30,
-    paddingLeft: 30,
+    paddingHorizontal: 30,
   },
   clouds: {
-    height: 300,
+    height: 295,
+    marginTop: -20,
     width: '100%'
   },
   button: {
-    backgroundColor: '#000000',
-    width: 185,
-    height: 61,
-    borderRadius: 30,
+    backgroundColor: '#1ED6E4',
+    height: 48,
+    borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 30,
-    marginTop: -40,
+    marginHorizontal:30,
+    marginTop:7,
   },
   buttonText: {
     color: '#FFFFFF',
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
   },
 });

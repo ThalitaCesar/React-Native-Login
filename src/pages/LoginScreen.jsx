@@ -1,18 +1,24 @@
 import React from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, TextInput, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 const LoginScreen = () => {
 
+  const navigation = useNavigation();
+
   const handleLogin = () => {
+    navigation.navigate('WebView'); 
   };
 
   return (
       <View style={styles.container}>
          <ImageBackground source={require('../../assets/bglogin.png')} style={styles.background}/>
-        <Text style={styles.title}>Log in to Shh!</Text>
+        <Text style={styles.title}>Log in</Text>
 
         <TouchableOpacity
           style={styles.button}
+          onPress={handleLogin}
         >
           <Image source={require('../../assets/google.png')} style={styles.icon}/> 
           <Text style={styles.buttonText}>Log in with Google</Text>
@@ -47,12 +53,12 @@ const LoginScreen = () => {
         </View>
 
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.loginButtonText}>Login</Text>
+          <Text style={styles.loginButtonText}>Sign in</Text>
         </TouchableOpacity>
 
         <View style={styles.signupContainer}>
           <Text style={styles.signupText}>Don’t have an account?</Text>
-          <Text style={[styles.signupText, { color: '#000000', marginLeft: 5 }]}>Sign up</Text>
+          <Text style={[styles.signupText, { color: '#1ED6E4' }]}>Sign up</Text>
         </View>
       </View>
   );
@@ -69,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'start',
     alignItems: 'start',
-    backgroundColor: '#8C5CB3',
+    backgroundColor: '#030720',
   },
   title: {
     color: '#FFFFFF',
@@ -85,9 +91,10 @@ const styles = StyleSheet.create({
     padding:20,
     textAlign: 'center',
     marginBottom:20,
+    color: '#E4E5E8'
   },
   button: {
-    backgroundColor: '#000000',
+    backgroundColor: '#1ED6E4',
     flexDirection:'row',
     height: 51,
     borderRadius: 30,
@@ -113,7 +120,7 @@ const styles = StyleSheet.create({
     paddingHorizontal:40,
   },
   label: {
-    color: '#000000',
+    color: '#E4E5E8',
     fontSize: 15,
     fontWeight: '500',
     marginBottom: 10,
@@ -126,6 +133,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontSize: 16,
     padding: 8,
+    paddingHorizontal:20,
   },
   passwordInputContainer: {
     flexDirection: 'row',
@@ -134,13 +142,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   forgotText: {
-    color: '#000000',
+    color: '#E4E5E8',
     fontSize: 14,
     fontWeight: '300',
     marginRight:5,
   },
   loginButton: {
-    backgroundColor: '#000000',
+    backgroundColor: '#1ED6E4',
     height: 56,
     borderRadius: 10,
     justifyContent: 'center',
