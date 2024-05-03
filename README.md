@@ -44,6 +44,16 @@ npm install
 expo start
 ```
 
+## To see the project
+
+Enter your expo app and choose one of the options between Scan QR code and enter URL manually:
+
+### QR code: 
+![expo](https://github.com/ThalitaCesar/React-Native-Login/assets/83131771/6e008758-e1fd-4554-b556-41dd1aa16222)
+
+### URL: 
+
+https://expo.dev/preview/update?message=%5Bprimeiro%20commit%20no%20eas%5D&updateRuntimeVersion=1.0.0&createdAt=2024-05-03T19%3A02%3A51.987Z&slug=exp&projectId=efe376da-73c6-445d-9cc8-f8beac8a1b2d&group=489d98ff-856c-47e8-b198-f8c082ee5bde
 
 
 
