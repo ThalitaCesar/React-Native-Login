@@ -1,9 +1,10 @@
-import AppNavigation from './src/navigation/navigation';
+import React, { useEffect, useState } from 'react';
+import AppNavigation from './src/navigation/AppNavigation';
+
 
 export default function App() {
+
   return (
-    <AppNavigation/>
+      <AppNavigation />
   );
 }
-
-

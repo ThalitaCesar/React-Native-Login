@@ -1,15 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, TextInput, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import useAuth from '../hooks/useAuth';
+import { auth } from '../config/firebaseConfig';
 
 
 const LoginScreen = () => {
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigation = useNavigation();
+  const { user } = useAuth();
 
-  const handleLogin = () => {
-    navigation.navigate('WebView'); 
+  const handleLoginWithGoogle = async () => {
+
   };
+
+  const handleLoginWithEmailAndPassword = async () => {
+    const trimmedEmail = email.trim();
+    const trimmedPassword = password.trim();
+    if (trimmedEmail && trimmedPassword) {
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        navigation.navigate("WebView", user);
+        setEmail("");
+        setPassword("");
+      } catch (error) {
+        console.log("got an error: ", error.message);
+        alert('Error logging in, check your credentials and try again.')
+      }
+    }
+    else{
+      alert('Error', 'Please fill all the required fields.');
+    }
+};
+
 
   return (
       <View style={styles.container}>
@@ -18,7 +44,7 @@ const LoginScreen = () => {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={handleLogin}
+          onPress={handleLoginWithGoogle}
         >
           <Image source={require('../../assets/google.png')} style={styles.icon}/> 
           <Text style={styles.buttonText}>Log in with Google</Text>
@@ -31,11 +57,13 @@ const LoginScreen = () => {
           </Text>
 
         <View style={styles.formContainer}>
-          <Text style={styles.label}>Username or Email</Text>
+          <Text style={styles.label}> Email</Text>
           <TextInput
             style={styles.input}
-            placeholder="Enter your username or email"
-            placeholderTextColor="#FFFFFF"
+            placeholder="Enter your email"
+            placeholderTextColor="#E4E5E8"
+            value={email}
+            onChangeText={(text) => setEmail(text)}
           />
           <View style={styles.passwordInputContainer}>
             <Text style={styles.label}>Password</Text>
@@ -43,23 +71,26 @@ const LoginScreen = () => {
               <Text style={styles.forgotText}>Forgot?</Text>
             </TouchableOpacity>
           </View>
-       
             <TextInput
               style={styles.input}
               placeholder="Enter your password"
-              placeholderTextColor="#FFFFFF"
+              placeholderTextColor="#E4E5E8"
               secureTextEntry={true}
+              value={password}
+              onChangeText={(text) => setPassword(text)}
             />
         </View>
 
-        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+        <TouchableOpacity style={styles.loginButton} onPress={handleLoginWithEmailAndPassword}>
           <Text style={styles.loginButtonText}>Sign in</Text>
         </TouchableOpacity>
 
         <View style={styles.signupContainer}>
-          <Text style={styles.signupText}>Don’t have an account?</Text>
+        <Text style={styles.signupText}>Don’t have an account?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
           <Text style={[styles.signupText, { color: '#1ED6E4' }]}>Sign up</Text>
-        </View>
+        </TouchableOpacity>
+      </View>
       </View>
   );
 };
