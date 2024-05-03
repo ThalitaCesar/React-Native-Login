@@ -44,7 +44,7 @@ npm install
 expo start
 ```
 
-## To see the project
+## 🔑 To see the project
 
 Enter your expo app and choose one of the options between Scan QR code and enter URL manually:
 
