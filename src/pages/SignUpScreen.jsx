@@ -37,7 +37,7 @@ const SignUpScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../../assets/bglogin.png')} style={styles.background} />
+      <ImageBackground source={require('../../assets/bg-signup.png')} style={styles.background} />
       <Text style={styles.title}>Sign Up</Text>
 
       <View style={styles.formContainer}>
@@ -90,14 +90,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     height: '100%',
-    bottom: -10,
+    bottom: 0,
   },
   container: {
     flex: 1,
     justifyContent: 'start',
     alignItems: 'center',
     backgroundColor: '#030720',
-    paddingTop: 80,
+    paddingTop: 20,
   },
   title: {
     color: '#FFFFFF',

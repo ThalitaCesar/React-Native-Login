@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     position: 'absolute', 
     width: '100%',
     height: '100%',
-    bottom: -10,
+    bottom: 0,
   },
   container: {
     flex: 1,
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
-    paddingTop: 80,
+    paddingTop: 20,
   },
   formText: {
     fontSize: 13,

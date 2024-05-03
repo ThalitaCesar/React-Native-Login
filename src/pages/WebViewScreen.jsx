@@ -13,6 +13,7 @@ const WebViewScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#030720',
   },
   webview: {
     flex: 1,
